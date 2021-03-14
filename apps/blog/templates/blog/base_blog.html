@@ -1,1 +1,21 @@
 {% extends 'base.html' %}
+
+
+{% block admin-panel %}
+<!-- Example single danger button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-succes dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Create
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'post_create_url' %}">Post</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{% url 'tag_create_url' %}">Tag</a></li>
+      </ul>
+    </div>
+    {% if detail %}
+    <a href="{{ admin_object.get_update_url}}" class="btn btn-succes">Edit</a>
+    <a href="{{ admin_object.get_delete_url}}" class="btn btn-danger">Delete</a>
+    {% endif %}
+
+{% endblock %}
